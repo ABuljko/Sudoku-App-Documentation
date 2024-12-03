@@ -13,9 +13,10 @@
 The mobile app **MUST** meet these requiroments to function properly
 
 **I.The tehnical part:**
-    -The user must have a functioning mobile devie
-    -The device has to be compmatible with the app
-    -A touch screen that works properly
+
+-The user must have a functioning mobile devie
+-The device has to be compmatible with the app
+-A touch screen that works properly
 
 **II. Play the game:**
     -The user **MUST** be able to select the square on the sudoku board
