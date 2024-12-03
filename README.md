@@ -12,7 +12,8 @@
 3. **Requirements**:
 4. **Analysis**:
 5. A) **DDD**: Do an Event-Storming to find your Domains! If your domain is too small, invent other domains around and document these domains (as if you have 100 Mio € from Edlich-Investment!) **(B)** Develop a clear strategic design with mappings/relationships with >4 Domains coming from an Event Storming **(A)**. Drop your Domains into a Core Domain Chart **(C)** and indicate the Relations = Mappings (! see MIRO examples again) between the Domains!
-** DDD Diagram**
+
+**DDD Diagram**
 ![Screenshot 2024-12-03 075040](https://github.com/user-attachments/assets/18213b2e-b731-42ab-a30a-05c94572b758)
 
 **DDD Event Diagram**
@@ -21,6 +22,7 @@
 **DDD Core Domain Chart version**
 ![Screenshot 2024-12-03 075107](https://github.com/user-attachments/assets/de8a96c8-1bff-41fe-b53e-ae63722dc753)
 
+https://miro.com/app/board/uXjVLMGPOiA=/
 6. **Metrics** at least two. Sonarcube would be great. Other non-trivial metrics are also fine.
 7. **Clean Code Development:** A) At least 5 points you can show me with an explanation of why this is clean code in your code and/or what has improved & B) >>10 points on your personal CCD cheat sheet. E.g. a PDF.
 8. **Build** Management with any Build System as Ant, Maven, Gradle, etc. (only Travis is perhaps not enough) Do e.g. generate Docs, call tests, etc. (it could be also disconnected from the project just to learn a build tool!) => to be merged with 7!
