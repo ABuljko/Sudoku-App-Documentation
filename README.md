@@ -10,8 +10,24 @@
 1. Use and understand **Git!** Be able to apply the basic commands. Can you experiment with time travelling or branches/merges?!
 2. **UML** at least **3** good different diagrams. "good" means you can pump it up artificially as written in DDD. You have 10 million $ from me! Please export the pics. I can not install all the tools to view them! For example, these diagrams are a good idea: Use-Case, Component D, Class D, and activity Diagram.
 3. **Requirements**:
-4. **Analysis**:
-5. A) **DDD**: Do an Event-Storming to find your Domains! If your domain is too small, invent other domains around and document these domains (as if you have 100 Mio € from Edlich-Investment!) **(B)** Develop a clear strategic design with mappings/relationships with >4 Domains coming from an Event Storming **(A)**. Drop your Domains into a Core Domain Chart **(C)** and indicate the Relations = Mappings (! see MIRO examples again) between the Domains!
+The mobile app **MUST** meet these requiroments to function properly
+
+I.The tehnical part:
+    The user must have a functioning mobile devie
+    The device has to be compmatible with the app
+    A touch screen that works properly
+
+II. Play the game:
+    The user **MUST** be able to select the square on the sudoku board
+    The user **MUST** be able to imput a number in the selected square by pressing one of the number buttons
+     The user **MUST** be able to erase an already imputed number from the selected square
+    
+III.Mobile App Development Using Flutter:
+    The app **MUST** be developed using Flutter and **MUST** be built to run on Android devices.
+    The use of Flutter widgets and best practices SHOULD be implemented for smooth and responsive UI.
+
+5. **Analysis**:
+6. A) **DDD**: Do an Event-Storming to find your Domains! If your domain is too small, invent other domains around and document these domains (as if you have 100 Mio € from Edlich-Investment!) **(B)** Develop a clear strategic design with mappings/relationships with >4 Domains coming from an Event Storming **(A)**. Drop your Domains into a Core Domain Chart **(C)** and indicate the Relations = Mappings (! see MIRO examples again) between the Domains!
 
 **DDD Diagram**
 ![Screenshot 2024-12-03 075040](https://github.com/user-attachments/assets/18213b2e-b731-42ab-a30a-05c94572b758)
@@ -23,6 +39,7 @@
 ![Screenshot 2024-12-03 075107](https://github.com/user-attachments/assets/de8a96c8-1bff-41fe-b53e-ae63722dc753)
 
 https://miro.com/app/board/uXjVLMGPOiA=/
+
 6. **Metrics** at least two. Sonarcube would be great. Other non-trivial metrics are also fine.
 7. **Clean Code Development:** A) At least 5 points you can show me with an explanation of why this is clean code in your code and/or what has improved & B) >>10 points on your personal CCD cheat sheet. E.g. a PDF.
 8. **Build** Management with any Build System as Ant, Maven, Gradle, etc. (only Travis is perhaps not enough) Do e.g. generate Docs, call tests, etc. (it could be also disconnected from the project just to learn a build tool!) => to be merged with 7!
