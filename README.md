@@ -100,6 +100,8 @@ Use a modern IDE like **VSCode** or **IntelliJ**. Highlight your favorite shortc
 ## 12. DSL
 Create a small **Domain-Specific Language (DSL)** demo, even if it doesn’t directly contribute to the project. This can be in another programming language.
 
+This project uses a DSL-like structure to handle Sudoku-specific tasks such as grid generation, user input, validation, focus management, and puzzle completion checks. Custom classes (BoxInner, BlokChar, FocusClass) and functions (generatePuzzle(), setInput(), checkFinish()) simplify working with Sudoku grids, ensuring clean and focused code.
+
 ## 13. Functional Programming
 Demonstrate **functional programming** principles in your project, such as:
 - Using only final data structures.
