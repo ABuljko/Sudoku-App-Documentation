@@ -32,20 +32,14 @@ Create at least **three UML diagrams**:
 Export the diagrams as images so they can be viewed without installing additional tools.
 
 ## 3. Requirements
-### I.Technical Part:
-- A functioning mobile device is required.
-- The device must be compatible with the app.
-- The device must have a working touch screen.
 
-### II.Play the Game:
-- The user **MUST** be able to select a square on the Sudoku board.
-- The user **MUST** be able to input a number into the selected square by pressing one of the number buttons.
-- The user **MUST** be able to erase an already inputted number from the selected square.
+### Tool Trello
+- Requirments to start
+  
+![Image](https://github.com/user-attachments/assets/ebe63b59-1aea-4d19-bc36-bfed80a04de4)
 
-### III.Mobile App Development Using Flutter:
-- The app **MUST** be developed using Flutter and built to run on Android devices.
-- Implement Flutter widgets and best practices for a smooth and responsive UI.
-
+### Current Requirements
+- [Sudoku App Requirements - Trello Board](https://trello.com/b/jywhwyZK/task-3-requirements)
 ## 4. Analysis
 Include a detailed analysis of the project requirements and challenges.
 
