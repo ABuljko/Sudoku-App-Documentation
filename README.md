@@ -7,8 +7,8 @@
 - [4. Analysis](#4-analysis)
 - [5. Event-Storming](#5-event-storming)
 - [6. Metrics](#6-metrics)
-- [7. Clean Code Development](#7-clean-code-development)
-- [8. Build](#8-build)
+- [7. Clean Code Development (CCD)](#7-clean-code-development(ccd))
+- [8. Refactoring](#8-refactoring)
 - [9. Continuous Delivery](#9-continuous-delivery)
 - [10. Integrate some nice unit tests](#10-integrate-some-nice-unit-tests)
 - [11. IDE](#11-ide)
@@ -117,16 +117,115 @@ Use at least two meaningful metrics, such as:
 - **SonarQube** for code analysis and quality assurance.
 - Other non-trivial metrics for in-depth project evaluation.
 
-## 7. Clean Code Development
+## 7. Clean Code Development (CCD)
 Document and demonstrate **Clean Code Development**:
 1. List at least five points showcasing clean code practices and their benefits.
 2. Provide a personal **CCD Cheat Sheet** with at least ten points (e.g., as a PDF).
 
-## 8. Build
-Use a build management tool like **Ant**, **Maven**, or **Gradle** to:
-- Manage dependencies.
-- Generate documentation.
-- Call tests as part of your build process.
+- Single Responsibility Principle: [BlokChar](https://github.com/ABuljko/Sudoku-App-Documentation/blob/main/lib/widgets/blokChar.dart) manages the state and behavior of a single Sudoku cells
+- Encapsulation: [FocusClass](https://github.com/ABuljko/Sudoku-App-Documentation/blob/main/lib/widgets/focusClass.dart) keeps the focus details inside and only shows needed methods
+- User-Centric Design: The code uses [setFocus](https://github.com/ABuljko/Sudoku-App-Documentation/blob/main/lib/screens/sudoku_widget.dart) to highlight selected boxes and [setInput](https://github.com/ABuljko/Sudoku-App-Documentation/blob/main/lib/screens/sudoku_widget.dart) for real-time feedback, enhancing user experience
+- Readable Names: [RestartButton](https://github.com/ABuljko/Sudoku-App-Documentation/blob/main/lib/widgets/restartButton.dart) represents a button that triggers a restart action, and [onReload](https://github.com/ABuljko/Sudoku-App-Documentation/blob/main/lib/widgets/restartButton.dart) is the function that gets called when the button is pressed
+- Efficient State Management: [setState](https://github.com/ABuljko/Sudoku-App-Documentation/blob/main/lib/screens/sudoku_widget.dart) is used only when necessary to trigger UI updates, optimizing performance
+
+
+## 8. Refactoring
+Show me two (non-trivial) Refactoring Examples of your code! Showing the original content and the refactored code! Explain what happened, why and how it has improved!
+
+### 1. generatePuzzle()
+Original Code
+
+      void generatePuzzle() {
+      boxInners.clear();
+    
+      var sudokuGenerator = SudokuGenerator(emptySquares: 54); 
+      var solvedSudoku = sudokuGenerator.newSudokuSolved;
+    
+      for (int i = 0; i < solvedSudoku.length; i++) {
+        for (int j = 0; j < solvedSudoku[i].length; j++) {
+          int index = i * sqrt(solvedSudoku.length).toInt() + j ~/ 3;
+          if (boxInners.isEmpty) {
+            boxInners.add(BoxInner(index, []));
+          }
+  
+        BoxInner boxInner = boxInners.first;
+        boxInner.blokChars.add(BlokChar(
+          solvedSudoku[i][j] == 0 ? "" : solvedSudoku[i][j].toString(),
+          index: boxInner.blokChars.length,
+          isDefault: solvedSudoku[i][j] != 0,
+          isCorrect: solvedSudoku[i][j] != 0,
+          correctText: solvedSudoku[i][j].toString(),
+        ));
+      }  
+        }
+      }
+
+Refactored Code
+
+        void generatePuzzle() {
+        boxInners.clear();
+      
+        var sudokuGenerator = SudokuGenerator(emptySquares: 54); 
+        List<List<List<int>>> completedGrid = partition(
+            sudokuGenerator.newSudokuSolved,
+            sqrt(sudokuGenerator.newSudoku.length).toInt())
+        .toList();
+      
+        partition(sudokuGenerator.newSudoku,
+            sqrt(sudokuGenerator.newSudoku.length).toInt())
+        .toList()
+        .asMap()
+        .entries
+        .forEach((entry) {
+          List<int> completedValues = completedGrid[entry.key].expand((e) => e).toList();
+          List<int> currentPuzzleValues = entry.value.expand((e) => e).toList();
+      
+          currentPuzzleValues.asMap().entries.forEach((entryIn) {
+            int index = entry.key * sqrt(sudokuGenerator.newSudoku.length).toInt() +
+                (entryIn.key % 9) ~/ 3;
+      
+            if (boxInners.where((element) => element.index == index).isEmpty) {
+              boxInners.add(BoxInner(index, []));
+            }
+      
+            BoxInner boxInner = boxInners.firstWhere((element) => element.index == index);
+            boxInner.blokChars.add(BlokChar(
+              entryIn.value == 0 ? "" : entryIn.value.toString(),
+              index: boxInner.blokChars.length,
+              isDefault: entryIn.value != 0,
+              isCorrect: entryIn.value != 0,
+              correctText: completedValues[entryIn.key].toString(),
+            ));
+          });
+        });
+        }
+### 2. setFocus()
+- Original Code
+
+      void setFocus(int index, int indexChar) {
+        tapBoxIndex = "$index-$indexChar";
+        focusClass.indexBox = index;
+        focusClass.indexChar = indexChar;
+        setState(() {});
+      }
+- Refactored Code
+
+      void setFocus(int index, int indexChar) {
+        tapBoxIndex = "$index-$indexChar";
+        focusClass.setData(index, indexChar);
+        showFocusCenter();
+        setState(() {});
+      }
+### How These Changes Improved the Code
+#### 1. generatePuzzle()
+- It splits the grid properly using **partition()**
+- It checks both the solved and current puzzle to make sure everything matches
+- As well as properly creating and managing the puzzle boxes
+- And finally it makes sure everything works correctly and is well-organized
+#### 2. setFocus()
+- The code is simpler to modify and/or build up
+- It directly updates focusClass, which makes it easier to understand
+- Also it voids the overhead of calling additional functions like **setData**
 
 ## 9. Continuous Delivery
 Create a **Continuous Delivery Pipeline** with tools such as:
