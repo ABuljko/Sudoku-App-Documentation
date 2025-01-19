@@ -1,12 +1,13 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:sudoku_app/blokChar.dart';
-import 'package:sudoku_app/boxInner.dart';
-import 'package:sudoku_app/focusClass.dart';
+import 'package:sudoku_app/widgets/blokChar.dart';
+import 'package:sudoku_app/widgets/boxInner.dart';
+import 'package:sudoku_app/widgets/focusClass.dart';
 // ignore: depend_on_referenced_packages
 import 'package:quiver/iterables.dart';
 // ignore: depend_on_referenced_packages
 import 'package:sudoku_solver_generator/sudoku_solver_generator.dart';
+import 'package:sudoku_app/widgets/restartButton.dart'; // Import the new widget
 
 // Main widget class for Sudoku game
 class SudokuWidget extends StatefulWidget {
@@ -71,9 +72,7 @@ class _SudokuWidgetState extends State<SudokuWidget> {
         BoxInner boxInner =
             boxInners.firstWhere((element) => element.index == index);
         boxInner.blokChars.add(BlokChar(
-          entryIn.value == 0
-              ? ""
-              : entryIn.value.toString(),
+          entryIn.value == 0 ? "" : entryIn.value.toString(),
           index: boxInner.blokChars.length,
           isDefault: entryIn.value != 0,
           isCorrect: entryIn.value != 0,
@@ -93,10 +92,7 @@ class _SudokuWidgetState extends State<SudokuWidget> {
     return Scaffold(
       appBar: AppBar(
         actions: [
-          ElevatedButton(
-            onPressed: reloadPuzzle, // Optimized reload function
-            child: const Icon(Icons.refresh),
-          ),
+          RestartButton(onReload: reloadPuzzle), // Use RestartButtonWidget here
         ],
       ),
       backgroundColor: Colors.blueAccent,
@@ -173,8 +169,8 @@ class _SudokuWidgetState extends State<SudokuWidget> {
                                     : () => setFocus(index, indexChar),
                                 child: Text(
                                   "${blokChar.text}",
-                                  style: TextStyle(
-                                      color: colorText, fontSize: 25),
+                                  style:
+                                      TextStyle(color: colorText, fontSize: 12),
                                 ),
                               ),
                             );
@@ -199,7 +195,8 @@ class _SudokuWidgetState extends State<SudokuWidget> {
                           gridDelegate:
                               const SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 3,
-                            childAspectRatio: 1,
+                            childAspectRatio:
+                                1.5, // Increase aspect ratio to make buttons smaller
                             crossAxisSpacing: 5,
                             mainAxisSpacing: 5,
                           ),
@@ -211,11 +208,14 @@ class _SudokuWidgetState extends State<SudokuWidget> {
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(8),
                                 ),
-                                minimumSize: const Size(50, 50),
+                                minimumSize: const Size(40,
+                                    40), // Decrease size for smaller buttons
                               ),
                               child: Text(
                                 "${index + 1}",
-                                style: const TextStyle(fontSize: 20),
+                                style: const TextStyle(
+                                    fontSize:
+                                        20), // Adjust font size for smaller buttons
                               ),
                             );
                           },
@@ -229,7 +229,8 @@ class _SudokuWidgetState extends State<SudokuWidget> {
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(8),
                                 ),
-                                minimumSize: const Size(50, 50),
+                                minimumSize: const Size(
+                                    80, 50), // Increase size for Clear button
                               ),
                               child: const Text(
                                 "Clear",
@@ -275,28 +276,33 @@ class _SudokuWidgetState extends State<SudokuWidget> {
   // Set the value of a selected box
   void setInput(int? number) {
     if (focusClass.indexBox == null) return; // No box selected
-    // Clear focus if the same value is selected or input is cleared
-    if (boxInners[focusClass.indexBox!].blokChars[focusClass.indexChar!].text ==
-            number.toString() ||
-        number == null) {
+
+    BlokChar focusedChar =
+        boxInners[focusClass.indexBox!].blokChars[focusClass.indexChar!];
+
+    if (focusedChar.text == number.toString() || number == null) {
+      // Clear focus but retain error marking for invalid numbers
       for (var element in boxInners) {
         element.clearFocus();
-        element.clearExist();
       }
-      boxInners[focusClass.indexBox!]
-          .blokChars[focusClass.indexChar!]
-          .setEmpty(); // Clear the input in the focused box
+
+      // Only clear the value if it is not marked as an error
+      if (number == null) {
+        focusedChar.setEmpty();
+      }
+
       tapBoxIndex = null; // Clear the selected box
       isFinish = false; // Reset the finished state
-      showSameInputOnSameLine(); // Check for duplicate inputs in the same line
     } else {
       // Set the new number and check for correctness
-      boxInners[focusClass.indexBox!]
-          .blokChars[focusClass.indexChar!]
-          .setText("$number");
+      focusedChar.setText("$number");
       showSameInputOnSameLine(); // Check for duplicate inputs in the same line
       checkFinish(); // Check if the puzzle is complete
     }
+
+    // Revalidate duplicate inputs without clearing error highlights
+    showSameInputOnSameLine();
+
     setState(() {}); // Rebuild to reflect changes
   }
 
@@ -341,7 +347,6 @@ class _SudokuWidgetState extends State<SudokuWidget> {
         .where((element) => !element.isCorrect) // Count the unfinished cells
         .length;
 
-    isFinish = totalUnfinished ==
-        0; // If no incorrect cells remain, the puzzle is finished
+    isFinish = totalUnfinished == 0; // If no incorrect cells remain, the puzzle is finished
   }
 }
