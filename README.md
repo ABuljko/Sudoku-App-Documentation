@@ -7,13 +7,14 @@
 - [4. Analysis](#4-analysis)
 - [5. Event-Storming](#5-event-storming)
 - [6. Metrics](#6-metrics)
-- [7. Clean Code Development (CCD)](#7-clean-code-development(ccd))
+- [7. Clean Code Development CCD](#7-clean-code-development-ccd))
 - [8. Refactoring](#8-refactoring)
-- [9. Continuous Delivery](#9-continuous-delivery)
-- [10. Integrate some nice unit tests](#10-integrate-some-nice-unit-tests)
-- [11. IDE](#11-ide)
-- [12. DSL](#12-dsl)
-- [13. Functional Programming](#13-functional-programming)
+- [9. BUILD](#9-build)
+- [10. Continuous Delivery](#10-continuous-delivery)
+- [11. Integrate some nice unit tests](#11-integrate-some-nice-unit-tests)
+- [12. IDE](#12-ide)
+- [13. AI Coding](#13-ai-coding)
+- [14. Functional Programming](#14-functional-programming)
 
 ---
 
@@ -103,11 +104,17 @@ Conduct **Event-Storming** as part of Domain-Driven Design (DDD):
 - **DDD Diagram**  
 ![DDD Diagram](https://github.com/user-attachments/assets/18213b2e-b731-42ab-a30a-05c94572b758)  
 
+---
+
 - **DDD Event Diagram**  
 ![DDD Event Diagram](https://github.com/user-attachments/assets/16360093-c6dc-40c0-b280-582ba2ccd10c)  
 
+---
+
 - **Core Domain Chart**  
 ![Core Domain Chart](https://github.com/user-attachments/assets/de8a96c8-1bff-41fe-b53e-ae63722dc753)  
+
+---
 
 ### Miro Board:
 Visit the interactive chart: [MIRO Board](https://miro.com/app/board/uXjVLMGPOiA=/)
@@ -133,7 +140,8 @@ Document and demonstrate **Clean Code Development**:
 Show me two (non-trivial) Refactoring Examples of your code! Showing the original content and the refactored code! Explain what happened, why and how it has improved!
 
 ### 1. generatePuzzle()
-Original Code
+#### Original Code
+The generatePuzzle() was designed to create a Sudoku puzzles by going through a solved grid and adding numbers to BoxInner objects. It calculates an index for each number and adds it to BlokChar. But it checks if boxInners is empty each time and uses boxInners.first, which isn’t efficient. The code also not flexible enough to handle different puzzle sizes.
 
       void generatePuzzle() {
       boxInners.clear();
@@ -160,8 +168,8 @@ Original Code
         }
       }
 
-Refactored Code
-
+#### Refactored Code
+By removing unnecessary checks, making it faster and easier to read. It uses simpler methods like partition and expand to handle the grid and accesses the correct BoxInner more efficiently.
         void generatePuzzle() {
         boxInners.clear();
       
@@ -199,8 +207,14 @@ Refactored Code
           });
         });
         }
+#### Why I Refactored
+I refactored the code to make it faster by removing unnecessary checks and simplifying the logic. It also improves how boxInners.first is accessed and works better with different puzzle sizes.
+
+---
+
 ### 2. setFocus()
-- Original Code
+#### Original Code
+The original setFocus() updated the focus by setting tapBoxIndex and updating focusClass, then triggered a state update. However, it lacked flexibility and didn’t support additional functionality like feedback or highlighting the focused area
 
       void setFocus(int index, int indexChar) {
         tapBoxIndex = "$index-$indexChar";
@@ -208,7 +222,8 @@ Refactored Code
         focusClass.indexChar = indexChar;
         setState(() {});
       }
-- Refactored Code
+#### Refactored Code
+The refactored setFocus() improved focus handling by using focusClass.setData() for cleaner updates and adding showFocusCenter() for better feedback.
 
       void setFocus(int index, int indexChar) {
         tapBoxIndex = "$index-$indexChar";
@@ -216,6 +231,11 @@ Refactored Code
         showFocusCenter();
         setState(() {});
       }
+#### Why I Refactored
+I refactored the code to make it more functional and easier to understand. Adding showFocusCenter() improved feedback, and using focusClass.setData() made focus updates cleaner and more organized.
+
+---
+
 ### How These Changes Improved the Code
 #### 1. generatePuzzle()
 - It splits the grid properly using **partition()**
@@ -226,8 +246,9 @@ Refactored Code
 - The code is simpler to modify and/or build up
 - It directly updates focusClass, which makes it easier to understand
 - Also it voids the overhead of calling additional functions like **setData**
-
-## 9. Continuous Delivery
+## 9. BUILD
+BUILD Management with any Build System as Ant, Maven, Gradle, etc. (only Travis is perhaps not enough) Do e.g. generate Docs, call tests, etc. (it could also be disconnected from the project just to learn a build tool!) => to be merged with 7!
+## 10. Continuous Delivery
 Create a **Continuous Delivery Pipeline** with tools such as:
 - **Jenkins**
 - **Travis-CI**
@@ -236,10 +257,10 @@ Create a **Continuous Delivery Pipeline** with tools such as:
 
 The pipeline should include at least two script calls, such as invoking a build tool or running tests.
 
-## 10. Integrate some nice unit tests
+## 11. Integrate some nice unit tests
 Develop and integrate meaningful **unit tests** into your code. Ensure they are included in the build pipeline.
 
-## 11. IDE
+## 12. IDE
 Use a modern IDE like **VSCode** or **IntelliJ**. Highlight your favorite shortcuts and features you’ve learned to use efficiently.
 
 Key Features Used:
@@ -268,12 +289,10 @@ My Favorite Shortcuts:
 
 - Ctrl + .: Suggest code fixes for highlighted code errors
 
-## 12. DSL
-Create a small **Domain-Specific Language (DSL)** demo, even if it doesn’t directly contribute to the project. This can be in another programming language.
+## 13. AI Coding
+ Set Up an AI-coding environment on your computer like ZED, Aider, free Cursor / Windsurf programs, etc. Show your steps and personal experiences! (ref)
 
-This project uses a DSL-like structure to handle Sudoku-specific tasks such as grid generation, user input, validation, focus management, and puzzle completion checks. Custom classes (BoxInner, BlokChar, FocusClass) and functions (generatePuzzle(), setInput(), checkFinish()) simplify working with Sudoku grids, ensuring clean and focused code.
-
-## 13. Functional Programming
+## 14. Functional Programming
 Demonstrate **functional programming** principles in your project, such as:
 - Using only final data structures.
 - Writing side-effect-free functions.
