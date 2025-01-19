@@ -7,7 +7,7 @@
 - [4. Analysis](#4-analysis)
 - [5. Event-Storming](#5-event-storming)
 - [6. Metrics](#6-metrics)
-- [7. Clean Code Development CCD](#7-clean-code-development-ccd))
+- [7. Clean Code Development CCD](#7-clean-code-development-ccd)
 - [8. Refactoring](#8-refactoring)
 - [9. BUILD](#9-build)
 - [10. Continuous Delivery](#10-continuous-delivery)
