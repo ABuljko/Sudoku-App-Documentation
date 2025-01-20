@@ -103,6 +103,7 @@ Document and demonstrate **Clean Code Development**:
 - Readable Names: [RestartButton](https://github.com/ABuljko/Sudoku-App-Documentation/blob/main/lib/widgets/restartButton.dart) represents a button that triggers a restart action, and [onReload](https://github.com/ABuljko/Sudoku-App-Documentation/blob/main/lib/widgets/restartButton.dart) is the function that gets called when the button is pressed
 - Efficient State Management: [setState](https://github.com/ABuljko/Sudoku-App-Documentation/blob/main/lib/screens/sudoku_widget.dart) is used only when necessary to trigger UI updates, optimizing performance
 
+[Clean Code Development Cheat Sheet](https://github.com/ABuljko/Sudoku-App-Documentation/blob/main/CCD-Cheat-Sheet.pdf)
 
 ## 8. Refactoring
 Show me two (non-trivial) Refactoring Examples of your code! Showing the original content and the refactored code! Explain what happened, why and how it has improved!
