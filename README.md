@@ -15,6 +15,7 @@
 - [12. IDE](#12-ide)
 - [13. AI Coding](#13-ai-coding)
 - [14. Functional Programming](#14-functional-programming)
+- [15. AI Coding environment](#15-ai-coding-environment)
 
 ---
 
@@ -247,7 +248,14 @@ I refactored the code to make it more functional and easier to understand. Addin
 - It directly updates focusClass, which makes it easier to understand
 - Also it voids the overhead of calling additional functions like **setData**
 ## 9. BUILD
-BUILD Management with any Build System as Ant, Maven, Gradle, etc. (only Travis is perhaps not enough) Do e.g. generate Docs, call tests, etc. (it could also be disconnected from the project just to learn a build tool!) => to be merged with 7!
+BUILD Management with any Build System as Ant, Maven, Gradle, etc. (only Travis is perhaps not enough) Do e.g. generate Docs, call tests, etc. (it could also be disconnected from the project just to learn a build tool!)
+
+The project uses Gradle for building and managing the project. Key files include:
+- [build.gradle](https://github.com/ABuljko/Sudoku-App-Documentation/blob/main/android/build.gradle): The root-level Gradle file that sets up repositories and shared dependencies for the entire project.
+- [app/build.gradle](https://github.com/ABuljko/Sudoku-App-Documentation/blob/main/android/app/build.gradle): The module-level Gradle file for the app, which includes configurations such as dependencies, build types, and product flavors.
+- [gradle.properties](https://github.com/ABuljko/Sudoku-App-Documentation/blob/main/android/gradle.properties): Holds project-level properties, including JVM arguments and AndroidX settings.
+- [settings.gradle](https://github.com/ABuljko/Sudoku-App-Documentation/blob/main/android/settings.gradle): Configures the Gradle modules and specifies which modules are included in the project.
+
 ## 10. Continuous Delivery
 Create a **Continuous Delivery Pipeline** with tools such as:
 - **Jenkins**
@@ -260,6 +268,10 @@ The pipeline should include at least two script calls, such as invoking a build 
 ## 11. Integrate some nice unit tests
 Develop and integrate meaningful **unit tests** into your code. Ensure they are included in the build pipeline.
 
+- [box_inner_test.dart](https://github.com/ABuljko/Sudoku-App-Documentation/blob/main/test/boxInner_test.dart): tests the BoxInner class to make sure it correctly handles setting focus, value existence, and clearing states for Sudoku grid cells.
+- [widget_test.dart](https://github.com/ABuljko/Sudoku-App-Documentation/blob/main/test/widget_test.dart): Verifies that widgets function as expected.
+
+These tests ensure that the components of your app, like buttons, text fields, and other widgets, behave correctly. They check if the widgets appear, respond to user interactions, and update the UI as expected.
 ## 12. IDE
 Use a modern IDE like **VSCode** or **IntelliJ**. Highlight your favorite shortcuts and features you’ve learned to use efficiently.
 
@@ -292,6 +304,17 @@ My Favorite Shortcuts:
 ## 13. AI Coding
  Set Up an AI-coding environment on your computer like ZED, Aider, free Cursor / Windsurf programs, etc. Show your steps and personal experiences! (ref)
 
+### Tools Used
+I selected GitHub Copilot as my AI coding assistant due to its smooth integration with VS Code. It improved my coding speed by providing real-time suggestions for snippets, refactorings, and patterns.
+
+### Personal Experience
+Setting up Copilot took less than 1 minute, and it quickly began supporting my project. I used it for:
+
+- To comment out my codes
+- As well as to fix some of the bugs I had in my sudoku code
+
+### Example: Creating a Search Bar is shown in Question 15
+
 ## 14. Functional Programming
 Demonstrate **functional programming** principles in your project, such as:
 - Using only final data structures.
@@ -301,3 +324,9 @@ Demonstrate **functional programming** principles in your project, such as:
 - Employing closures or anonymous functions.
 
 You may also explore functional programming in other languages like **F#**, **Clojure**, or **Julia**.
+
+## 15. AI Coding environment
+Set up a running AI Coding environment! Prove it by “coding” something iteratively
+- This is all part of one chat, I just did not properly edit the picture
+![Image](https://github.com/user-attachments/assets/75e02a44-fcf6-4116-9c97-cdd68c5bd5f7)
+![Image](https://github.com/user-attachments/assets/66a38a75-9062-4750-8d2f-cc819ff8d989)
