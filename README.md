@@ -27,14 +27,12 @@ I’ve used Git to manage version control on my project, which has made it easie
 
 ![Image](https://github.com/user-attachments/assets/046704fb-e9ad-479b-b14a-dea01be2a5e7)
 ## 2. UML
-Create at least **three UML diagrams**:
+
 - **Use-Case Diagram**
 - **Component Diagram**
 - **Class Diagram**
 - **Activity Diagram**
-
-Export the diagrams as images so they can be viewed without installing additional tools.
-
+![Image](https://github.com/user-attachments/assets/b55f7f3f-687f-4636-a7d0-12cfd3b2a413)
 ## 3. Requirements
 
 ### Tool Trello
@@ -287,14 +285,104 @@ Setting up Copilot took less than 1 minute, and it quickly began supporting my p
 
 ## 14. Functional Programming
 Demonstrate **functional programming** principles in your project, such as:
-- Using only final data structures.
-- Writing side-effect-free functions.
-- Utilizing higher-order functions.
-- Passing functions as parameters or return values.
-- Employing closures or anonymous functions.
 
-You may also explore functional programming in other languages like **F#**, **Clojure**, or **Julia**.
+### Using only final data structures.
+In blokChar.dart, the BlokChar class uses final for fields, making them immutable. This ensures that once an instance is created, its state cannot be changed.
 
+      class BlokChar {
+        final String? correctText;  // Correct solution for the cell.
+        final bool isDefault;       // Indicates if the cell is pre-filled.
+        BlokChar(
+          String? text, {
+          this.correctText,
+          this.isDefault = false,
+        }) : super(text: text);
+      }
+
+### Writing side-effect-free functions.
+The isCorrectPos function in blokChar.dart is a side effect free function. It simply returns a value based on the inputs and does not modify any external states.
+
+      bool get isCorrectPos => correctText == text;
+
+-  In sudoku_widget.dart, the showSameInputOnSameLine function processes input without modifying external states.
+        
+        void showSameInputOnSameLine() {
+          String textInput = boxInners[focusClass.indexBox!]
+              .blokChars[focusClass.indexChar!].text!;
+        
+          boxInners.forEach((element) => element.clearExist());
+          boxInners
+              .where((e) => e.index ~/ 3 == focusClass.indexBox! ~/ 3)
+              .forEach((e) => e.setExistValue(focusClass.indexChar!, textInput));
+        }
+### Utilizing higher-order functions.
+In sudoku_widget.dart, you are using higher-order functions such as forEach, map, and where. These are applied to lists of Sudoku cells, processing each cell using the provided functions.
+
+    boxInners.forEach((box) {
+      box.blokChars
+          .where((char) => char.isCorrect == false)
+          .forEach((char) => char.setEmpty());
+    });
+
+
+### Closures and Anonymous Functions.
+In home_page.dart, you are using anonymous functions (closures) in the _buildButton method for state management and handling callbacks.
+
+    _buildButton(
+      context,
+      text: 'Start New Game',
+      onPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => SudokuWidget(themeNotifier: themeNotifier),
+          ),
+        );
+      },
+    );
+
+Similarly, in sudoku_widget.dart, anonymous functions are used inside the GridView.builder to handle button clicks.
+
+    GridView.builder(
+      itemCount: boxInners.length,
+      itemBuilder: (context, index) {
+        return Container(
+          child: GridView.builder(
+            itemCount: boxInners[index].blokChars.length,
+            itemBuilder: (context, charIndex) {
+              return TextButton(
+                onPressed: () => setFocus(index, charIndex),
+                child: Text(boxInners[index].blokChars[charIndex].text ?? ""),
+              );
+            },
+          ),
+        );
+      },
+    );
+    
+### Functions as Parameters and Return Values.
+In restartButton.dart, the RestartButton widget receives a function (VoidCallback) as a parameter, which it calls when the button is pressed.
+
+    class RestartButton extends StatelessWidget {
+      final VoidCallback onReload;
+    
+      const RestartButton({required this.onReload});
+    
+      @override
+      Widget build(BuildContext context) {
+        return ElevatedButton(
+          onPressed: onReload,
+          child: const Icon(Icons.refresh),
+        );
+      }
+    }
+In sudoku_widget.dart, the setFocus function is used as part of the game logic, passing parameters to update the focus position.
+
+    void setFocus(int index, int charIndex) {
+      tapBoxIndex = "$index-$charIndex";
+      focusClass.setData(index, charIndex);
+      setState(() {});
+    }
 ## 15. AI Coding environment
 Set up a running AI Coding environment! Prove it by “coding” something iteratively
 - This is all part of one chat, I just did not properly edit the picture
