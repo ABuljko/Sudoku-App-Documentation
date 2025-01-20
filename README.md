@@ -16,6 +16,7 @@
 - [13. AI Coding](#13-ai-coding)
 - [14. Functional Programming](#14-functional-programming)
 - [15. AI Coding environment](#15-ai-coding-environment)
+- [My Thoughts](my.thoughts)
 
 ---
 
@@ -298,3 +299,11 @@ Set up a running AI Coding environment! Prove it by “coding” something itera
 - This is all part of one chat, I just did not properly edit the picture
 ![Image](https://github.com/user-attachments/assets/75e02a44-fcf6-4116-9c97-cdd68c5bd5f7)
 ![Image](https://github.com/user-attachments/assets/66a38a75-9062-4750-8d2f-cc819ff8d989)
+## My Thoughts
+Share personal experiences, screenshots, and personalized text.
+
+I had alot of fun making this project, but sometimes I wanted to throw my laptop throught the window because to be honest I hate making charts. Although it was somthing that i wanted to do for a long time, I realise that as I was doing the project that I ended up learning a lot, and earning about the different ways to utalize Github repositories, mistakes, nad most importantly setting up the AI assistant in my VS Code were honestly the best parts of this project.
+
+I personaly do use GitHub for storing my projects and mapping out my activity, but if I am honest I would only use it for basic things. Now that I had to do all of these things with my code and documentinnng everything I found so many interesting and new features in GitHub. In the end, I'm grateful for this project as it gave me the push I needed to work on an idea I had been thinking about for a long time, because I really always wanted to make a sudoku app, but was always pushed back for some reason. It also taught me what it takes to build and organize a project from start to finish. I will definitely be using this in the future.
+![Image](https://github.com/user-attachments/assets/acc78fad-491b-4f1a-87ff-b3b19af18c8f)
+![Image](https://github.com/user-attachments/assets/4ad632e5-7f02-4182-80ca-d72d1bb3524d)
