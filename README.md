@@ -88,9 +88,9 @@ Conduct **Event-Storming** as part of Domain-Driven Design (DDD):
 Visit the interactive chart: [MIRO Board](https://miro.com/app/board/uXjVLMGPOiA=/)
 
 ## 6. Metrics
-Use at least two meaningful metrics, such as:
-- **SonarQube** for code analysis and quality assurance.
-- Other non-trivial metrics for in-depth project evaluation.
+I used Dart's linter to check for best practices, and the results confirm a clean codebase with minimal warnings or errors.
+![Image](https://github.com/user-attachments/assets/7d5b90db-8212-4845-8656-1efb848ed203)
+![Image](https://github.com/user-attachments/assets/104b9093-c709-44e3-8ac7-756c59182dff)
 
 ## 7. Clean Code Development (CCD)
 Document and demonstrate **Clean Code Development**:
