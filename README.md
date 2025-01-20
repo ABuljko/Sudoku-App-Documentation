@@ -70,7 +70,7 @@ Conduct **Event-Storming** as part of Domain-Driven Design (DDD):
 
 ### Examples:
 - **DDD Diagram**  
-![DDD Diagram](https://github.com/user-attachments/assets/18213b2e-b731-42ab-a30a-05c94572b758)  
+![Image](https://github.com/user-attachments/assets/d87af7db-405d-4e1e-a3e8-8ef8cbab401c)
 
 ---
 
