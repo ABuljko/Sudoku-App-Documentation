@@ -39,9 +39,13 @@ Export the diagrams as images so they can be viewed without installing additiona
 - Requirments to start
   
 ![Image](https://github.com/user-attachments/assets/ebe63b59-1aea-4d19-bc36-bfed80a04de4)
+### Tool Jira
+- Requirments to start
+![Image](https://github.com/user-attachments/assets/33adca82-6126-41b0-8070-699b2b9b0e3d)
 
 ### Current Requirements
 - [Sudoku App Requirements - Trello Board](https://trello.com/b/jywhwyZK/task-3-requirements)
+- [Sudoku App Requirements - Jira Board](https://ajdinbuljko17.atlassian.net/jira/software/projects/BTS/boards/1)
 ## 4. Analysis
 Include a detailed analysis of the project requirements and challenges.
 
