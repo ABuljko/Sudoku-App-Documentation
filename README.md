@@ -23,8 +23,9 @@
 ## 1. Git
 Use and understand **Git**! Apply the basic commands, and experiment with time traveling, branches, and merges.  
 
-I’ve used Git to manage version control on my project, which has made it easier to stay organized and keep track of my work. Features like branches, commits, and merges have been really helpful for managing changes and progress over time.
+I’ve used Git to manage version control on my project, which has made it easier to stay organized and keep track of my work. Features like commits, and merges have been really helpful for managing changes and progress over time.
 
+![Image](https://github.com/user-attachments/assets/046704fb-e9ad-479b-b14a-dea01be2a5e7)
 ## 2. UML
 Create at least **three UML diagrams**:
 - **Use-Case Diagram**
