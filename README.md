@@ -31,12 +31,12 @@ I’ve used Git to manage version control on my project, which has made it easie
 - **Use-Case Diagram**
 ![UMLUseCase](https://github.com/user-attachments/assets/d4860f5f-c304-4c1b-9ced-a5d1744bbe4d)
 
-- **Component Diagram**
 - **Class Diagram**
 ![UMLClassDiagram](https://github.com/user-attachments/assets/b4c90d50-08a4-4a81-b38b-258937d0cbff)
 
 - **Activity Diagram**
 ![Image](https://github.com/user-attachments/assets/b55f7f3f-687f-4636-a7d0-12cfd3b2a413)
+
 ## 3. Requirements
 
 ### Tool Trello
